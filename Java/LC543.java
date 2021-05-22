@@ -1,7 +1,7 @@
 // 543. Diameter of Binary Tree
 // The diameter of a binary tree is the length of the longest path 
 // between any two nodes in a tree. This path may or may not pass through the root.
-// 需要存一个max用来比较每次找到的left + right
+// 需要存一个max用来比较每次找到的left + right,因为这条路径不一定经过root
 // Time: O(n)
 // Space: O(h)
 

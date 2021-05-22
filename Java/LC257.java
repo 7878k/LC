@@ -1,29 +1,30 @@
 // 257. Binary Tree Paths
-// Time & Space O(n^2)
+// Time & Space O(n^2) n个nodes 每次复制n	
+// BFS 遍历， 如果是leaf，直接加这条path到result里；如果不是就bfs到底，然后每一次都:path + -> + value
 
 class Solution {
-    
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> paths = new ArrayList<>();
+        List<String> result = new ArrayList<>();
         if (root == null)
-            return paths;
-        helper(paths, root, "");
-        return paths;
+            return result;
+
+        helper(root, String.valueOf(root.val), result);
+        return result;
     }
     
-    private void helper(List<String> paths, TreeNode root, String path) {
+    private void helper(TreeNode root, String path, List<String> result) {
         if (root == null)
             return;
-        
-        path+=String.valueOf(root.val);
-        
-        // leaf node, return the while path
-        if (root.left == null && root.right == null)
-            paths.add(path);
-        // left child
-        else {
-			helper(paths, root.left, path + "->");
-            helper(paths, root.right, path + "->");
-		} 
+        if (root.left == null && root.right == null) {
+            result.add(path);
+            return;
+        }
+            
+        if (root.left != null) {
+            helper(root.left, path + "->" + String.valueOf(root.left.val), result);
+        }
+        if (root.right != null) {
+            helper(root.right, path + "->" + String.valueOf(root.right.val), result);
+        }
     }
-}	
+}

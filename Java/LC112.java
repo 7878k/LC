@@ -1,6 +1,7 @@
 // 112. Path Sum
 // T: O(n), S: O(h)
-// use targetSum - curr val, if the left root val = targetSum, then its a valid path
+// base case, when root is leaf node, check if root.val == targetSum, cause it's the last number to sum up
+// use targetSum - curr val, if the left/right root val = targetSum, then its a valid path
 
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
