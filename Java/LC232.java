@@ -1,5 +1,7 @@
 // 232. Implement Queue using Stacks
-// Time: O(1), Space: O(n)
+// push: O(1); O(n)
+// pop: amortized O(1); O(1)
+// Empty & peek: O(1) for both
 /*
 Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
 

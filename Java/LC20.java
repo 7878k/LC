@@ -33,7 +33,7 @@ class Solution {
                 if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
                     return false;
                 }
-                // 有就把对应的左括号对应掉
+                // 如果map有右括号，stack有对应左括号，将这个左括号pop
                 stack.pop();
             } else {    // 没有就放一个左括号进stack
                 stack.push(ch);
