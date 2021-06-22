@@ -1,6 +1,6 @@
 // 125. Valid Palindrome
 // Given a string s, determine if it is a palindrome, 
-// considering only alphanumeric characters and ignoring cases.
+// 	considering only alphanumeric characters and ignoring cases.
 // Time: O(N)	
 // Space: O(1)
 

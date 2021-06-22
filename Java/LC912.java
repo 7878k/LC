@@ -1,5 +1,5 @@
 // time: O(nlog(n)), space: O(log(n))
-// quick sort 
+// quick sort 	
 class Solution {
     public int[] sortArray(int[] nums) {
         if (nums == null || nums.length == 0)
