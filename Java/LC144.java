@@ -15,3 +15,29 @@ class Solution {
         preOrder(root.right, result);
     }
 }
+
+// non-recursion
+// use a stack to push root first, then right, left since its LIFO
+class Solution2 {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> result = new ArrayList<>();
+        
+        if (root == null)
+            return result;
+        
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return result;
+    }
+}
