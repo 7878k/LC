@@ -40,3 +40,54 @@ class Solution {
         return newHead;
     }
 }
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution2 {
+    public boolean isPalindrome(ListNode head) {
+        if (head == null)
+            return false;
+        ListNode mid = findMid(head);
+        mid = reverse(mid);
+        ListNode p1 = head;
+        ListNode p2 = mid;
+        while (p1 != null && p2 != null && p1.val == p2.val) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p2 == null;
+    }
+    
+    private ListNode findMid(ListNode head) {
+        if (head == null)
+            return head;
+        ListNode fast = head;
+        ListNode slow = head;
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+}
