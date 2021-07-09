@@ -29,7 +29,7 @@ class Solution2 {
                 // 如果不加prev就会陷入死循环~，加个prev做个判断，只有没有遍历过的右子树才能入栈
             } else { // 如果有right节点，就push root，然后visit right节点
                 stack.push(root);
-                root = root.right;
+                root = root.right; 	// 如果前面不判断prev访问过没有，这里又要访问一遍了
             }
         }
         return ret;
