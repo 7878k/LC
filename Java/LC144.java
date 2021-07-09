@@ -31,6 +31,7 @@ class Solution2 {
             TreeNode node = stack.pop();
             result.add(node.val);
             
+			//  因为是stack 所以先放right child，再放left child
             if (node.right != null) {
                 stack.push(node.right);
             }

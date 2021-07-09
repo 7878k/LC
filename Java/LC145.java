@@ -19,8 +19,10 @@ class Solution2 {
             }
             root = stack.pop();
             
-            // 判断有没有right节点或者访问过没有
+            // 判断有没有right节点，或者right节点访问过没有
+			// 如果不判断，当回到根节点后，又会判断有没有right节点
             if (root.right == null || root.right == prev) {
+				// 没有右子树，也有左子树，才会加入ret
                 ret.add(root.val);
                 prev = root;
                 root = null;
@@ -28,8 +30,9 @@ class Solution2 {
                 // 下一次循环时还会判断是否有右子树；
                 // 如果不加prev就会陷入死循环~，加个prev做个判断，只有没有遍历过的右子树才能入栈
             } else { // 如果有right节点，就push root，然后visit right节点
-                stack.push(root);
-                root = root.right; 	// 如果前面不判断prev访问过没有，这里又要访问一遍了
+                stack.push(root);   // 这个是右节点的根节点，进栈，到下一层循环的时候，root已经变成右节点
+                root = root.right; 	// 右节点会在while (root != null)里被放进stack，
+									// 此时stack里有右节点，然后才是根节点。
             }
         }
         return ret;

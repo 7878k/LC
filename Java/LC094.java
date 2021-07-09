@@ -17,57 +17,37 @@ class Solution {
     }
 }
 
-class Solution2 {
+class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
         List<Integer> ret = new ArrayList<>();
-        TreeNode node = root;
+        Stack<TreeNode> stack = new Stack<>();
         
-        while (node != null || !stack.isEmpty()) {
+        if (root == null) {
+            return ret;
+        }
+		
+        TreeNode node = root;
+
+		//root为空且stack为空，遍历结束
+        while (!stack.isEmpty() || node != null) {
+			// 先遍历所有left children
             while (node != null) {
-                stack.add(node);
+                stack.push(node);
                 node = node.left;
             }
+			
+			// 此时root==null，说明上一步的root没有左子树
+            // 1. 执行左出栈。因为此时root==null，导致root.right一定为null，进入下一层while
+            // 2. 此时root为null，直接pop一个， 就是上一个节点的跟，根出栈，加入ret。此时root.right可能存在
+            // 3a. 若root.right存在，右入栈，再出栈
+            // 3b. 若root.right不存在，重复步骤2
+            // 左子树根节点
+			// inorder 是左-根-右
             node = stack.pop();
+			// 弹出来加入答案
             ret.add(node.val);
+			// 如果有右节点，就加入stack； 这个右节点的root再上一轮就弹出了
             node = node.right;
-        }
-        return ret;
-    }
-}
-
-/**
-如果右子树为空或者已经访问过了，然后访问根结点
-否则，需要将该结点再次压回栈中，去访问其右子树，因为顺序是左-右-根
-*/
-class Solution2 {
-    public List<Integer> postorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        List<Integer> ret = new ArrayList<>();
-        if (root == null)
-            return ret;
-        
-        TreeNode prev = null; // 记录前一个访问的节点
-        
-        while (root != null || !stack.isEmpty()) {
-            while (root != null) { // 一直到left子节点
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            
-            // 判断有没有right节点或者访问过没有
-            if (root.right == null || root.right == prev) {
-                ret.add(root.val);
-                prev = root;
-                root = null;
-                // 右子树出栈的时候，每次出栈root不断上移，
-                // 下一次循环时还会判断是否有右子树；
-                // 如果不加prev就会陷入死循环~，加个prev做个判断，只有没有遍历过的右子树才能入栈
-            } else { // 如果有right节点，就push root，然后visit right节点
-                stack.push(root);
-                root = root.right;
-            }
         }
         return ret;
     }

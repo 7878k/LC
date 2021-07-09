@@ -5,9 +5,10 @@
 
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
+		// base case 1:
         if (root == null)
             return false;
-        
+        // base case 2: 当到达子节点的时候，检测当前值是不是等于targetSum
         if (root.left == null && root.right == null)
             return root.val == targetSum;
         return hasPathSum(root.left, targetSum - root.val) ||
