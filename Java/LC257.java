@@ -1,30 +1,25 @@
 // 257. Binary Tree Paths
-// Time & Space O(n^2) n个nodes 每次复制n	
-// BFS 遍历， 如果是leaf，直接加这条path到result里；如果不是就bfs到底，然后每一次都:path + -> + value
-
+// Time: O(N^2), 每个节点会被访问一次，然后path每次都会被复制一次，所以是N*N
+// Space: O(N^2) 如果是每个节点只有一个子节点，那么递归层数就是N， 然后path也会有代价是N，所以是N^2
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> result = new ArrayList<>();
-        if (root == null)
-            return result;
-
-        helper(root, String.valueOf(root.val), result);
-        return result;
+        List<String> ret = new ArrayList<>();
+        helper(root, "", ret);
+        return ret;
     }
     
-    private void helper(TreeNode root, String path, List<String> result) {
-        if (root == null)
-            return;
-        if (root.left == null && root.right == null) {
-            result.add(path);
-            return;
-        }
+    private void helper(TreeNode root, String path, List<String> ret) {
+        if (root != null) {
+            StringBuilder pathSB = new StringBuilder(path);
+            pathSB.append(Integer.toString(root.val)); //当前path放入第一个数，就是root; Integer.toString()可以把数字转为string
             
-        if (root.left != null) {
-            helper(root.left, path + "->" + String.valueOf(root.left.val), result);
-        }
-        if (root.right != null) {
-            helper(root.right, path + "->" + String.valueOf(root.right.val), result);
+            if (root.left == null && root.right == null) { // 如果当前节点是叶子节点，那么就把当前path加到答案里
+                ret.add(pathSB.toString()); 
+            } else { // 当前不是叶子节点，加个-> 然后遍历左右节点
+                pathSB.append("->");
+                helper(root.left, pathSB.toString(), ret);
+                helper(root.right, pathSB.toString(), ret);
+            }
         }
     }
 }

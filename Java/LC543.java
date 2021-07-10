@@ -18,7 +18,7 @@ class Solution {
         
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-        
+        // 经过一个点的最长直径就是最长left和right相加
         max = Math.max(max, left + right);
         
         return Math.max(left, right) + 1;

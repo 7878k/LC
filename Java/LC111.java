@@ -5,14 +5,19 @@
 
 class Solution {
     public int minDepth(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
-        int leftHeight = minDepth(root.left);
-        int rightHeight = minDepth(root.right);
+        }
         
-        if (leftHeight == 0 || rightHeight == 0)
-            return leftHeight + rightHeight + 1;
+        int left = minDepth(root.left);
+        int right = minDepth(root.right);
         
-        return Math.min(leftHeight, rightHeight) + 1;
+        // 如果有一边的子树都是null, 那就是糖葫芦，那么最小depth就不是0，是唯一的那一边
+        // 这种情况left right都相加，反正其中一个是0，不影响答案
+        if (left == 0 || right == 0) {
+            return left + right + 1;
+        }
+        
+        return Math.min(left, right) +1;
     }
 }
