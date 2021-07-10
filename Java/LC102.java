@@ -14,8 +14,8 @@ class Solution {
 			// 用level记录当前层的所有节点
             ArrayList<Integer> level = new ArrayList<>();
             int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode head = queue.poll();
+            for (int i = 0; i < size; i++) { //一个loop代表一层，然后当前level存当前层所有node
+                TreeNode head = queue.poll(); // 当前层的所有节点再上一个循环就放进来了
                 level.add(head.val);
                 if (head.left != null)
                     queue.offer(head.left);
@@ -25,5 +25,21 @@ class Solution {
             ret.add(level);
         }
         return ret;
+    }
+}
+
+
+// BFS模板
+void bfs(TreeNode root) {
+    Queue<TreeNode> queue = new ArrayDeque<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        TreeNode node = queue.poll(); // Java 的 pop 写作 poll()
+        if (node.left != null) {
+            queue.add(node.left);
+        }
+        if (node.right != null) {
+            queue.add(node.right);
+        }
     }
 }
