@@ -1,6 +1,7 @@
 // 257. Binary Tree Paths
 // Time: O(N^2), 每个节点会被访问一次，然后path每次都会被复制一次，所以是N*N
 // Space: O(N^2) 如果是每个节点只有一个子节点，那么递归层数就是N， 然后path也会有代价是N，所以是N^2
+// bfs到leaf node，然后添加这条path到答案； 如果不是leaf node，继续recursion left 和 right
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> ret = new ArrayList<>();
