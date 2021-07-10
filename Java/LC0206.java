@@ -8,6 +8,8 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+ // Time O(n)
+// Space O(n)
 class Solution {
     public ListNode reverseList(ListNode head) {
         // if empty list or at end of the list (head.next == null), now return head;
@@ -22,6 +24,8 @@ class Solution {
     }
 }
 
+// Time O(n)
+// Space O(1)
 class Solution2 {
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;           // store prev node
@@ -34,5 +38,3 @@ class Solution2 {
         return prev;                    // now head is null, so return prev
     }
 }
-// Time O(n)
-// Space O(1)

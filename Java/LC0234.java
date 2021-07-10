@@ -73,6 +73,7 @@ class Solution2 {
         ListNode fast = head;
         ListNode slow = head;
         
+		// 找中点， 这不是cycle的，所以fast停的时候，就是mid左边的那个
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
