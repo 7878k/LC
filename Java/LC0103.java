@@ -33,7 +33,34 @@ class Solution {
                 }
             }
             ret.add(new ArrayList(level));
-            left = !left;
+            left = !left;  // 记得neg left
+        }
+        return ret;
+    }
+}
+
+
+class Solution2 {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> ret = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        if (root != null) queue.offer(root);
+        
+        while (!queue.isEmpty()) {
+            List<Integer> level = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                root = queue.poll();
+                if (ret.size() % 2 == 0) { // 用ret的size来判断奇偶
+                    level.add(root.val);
+                } else {
+                    level.add(0, root.val);
+                }
+                if (root.left != null) queue.offer(root.left);
+                if (root.right != null) queue.offer(root.right);
+            }
+            ret.add(level);
+
         }
         return ret;
     }

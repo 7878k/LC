@@ -16,29 +16,27 @@ class Solution {
     }
 }
 
-// non-recursion
-// use a stack to push root first, then right, left since its LIFO
+// iterative 
+// Time: O(N), Space: O(N)
+// DFS Preorder: root->left->right 所以先把root放答案，然后利用stack的LIFO，把right
+// 先放stack，然后再放left，这样是left先出来
 class Solution2 {
     public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<>();
-        List<Integer> result = new ArrayList<>();
-        
-        if (root == null)
-            return result;
-        
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            result.add(node.val);
-            
-			//  因为是stack 所以先放right child，再放left child
-            if (node.right != null) {
-                stack.push(node.right);
+        if (root != null) {
+            stack.push(root);
+        }  
+        while (!stack.empty()) {
+            root = stack.pop();
+            ret.add(root.val);
+            if (root.right != null) {
+                stack.push(root.right);
             }
-            if (node.left != null) {
-                stack.push(node.left);
+            if (root.left != null) {
+                stack.push(root.left);
             }
         }
-        return result;
+        return ret;
     }
 }

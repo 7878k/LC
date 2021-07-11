@@ -3,6 +3,7 @@
 如果右子树为空或者已经访问过了，然后访问根结点
 否则，需要将该结点再次压回栈中，去访问其右子树，因为顺序是左-右-根
 */
+// TIME & SPACE: O(N)
 class Solution2 {
     public List<Integer> postorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
@@ -33,6 +34,29 @@ class Solution2 {
                 stack.push(root);   // 这个是右节点的根节点，进栈，到下一层循环的时候，root已经变成右节点
                 root = root.right; 	// 右节点会在while (root != null)里被放进stack，
 									// 此时stack里有右节点，然后才是根节点。
+            }
+        }
+        return ret;
+    }
+}
+
+
+class Solution2 {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (root != null) {
+            stack.push(root);
+        }
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            ret.add(0, root.val); // 每次放放在开头的位置，这样头节点肯定在ret的最后
+            if (root.left != null) {  // left先进stack，就后访问
+                stack.push(root.left);
+            }
+            if (root.right != null) { // right先进，先访问，但是val每次是放在ret的第一个位置
+									  // 所以right放了后，left再放在第一个位置，所以顺序还是left - right - root
+                stack.push(root.right);
             }
         }
         return ret;
