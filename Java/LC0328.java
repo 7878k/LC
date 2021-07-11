@@ -10,7 +10,8 @@ class Solution {
         ListNode evenHead = head.next; // even head就是head.next 
         ListNode odd = head;
         ListNode even = evenHead;
-        
+
+		// 对于奇数长度链表，当even == null时结束循环，对于偶数长度链表，当even.next == null时结束循环
         while (even != null && even.next != null) {
             // odd的下一个是even的下一个
             odd.next = even.next;

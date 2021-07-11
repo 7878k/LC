@@ -20,7 +20,7 @@ class Solution {
         
         // 表示当前递归到中序序列中当前子树的左右边界
         return helper(0, inOrder.length - 1); // 递归函数 helper(left, right) 
-    }
+    }	
     
     public TreeNode helper(int left, int right) {
         // base case
@@ -37,7 +37,14 @@ class Solution {
         postIndex--; // 减一是因为下一轮recursion要找另一个root
         
         // 后序遍历是先左后右， 反过来的时候就要先右后左
-        root.right = helper(index + 1, right);
+		// 因为postorder[] 倒数第二个节点是 level2 右子树的root, 而不是level2 左子树的root，以此类推
+		// 注意这里有需要先创建右子树，再创建左子树的依赖关系。
+		// 可以理解为在后序遍历的数组中整个数组是先存储左子树的节点，
+		// 再存储右子树的节点，最后存储根节点，如果按每次选择「后序遍历的最后一个节点」为根节点，
+		// 则先被构造出来的应该为右子树
+
+
+        root.right = helper(index + 1, right); 
         root.left = helper(left, index - 1);
         
         return root;
