@@ -1,13 +1,5 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+// 21. Merge Two Sorted Lists
+// Time & Space: O(M+N)
  
  /**
  *	首先搞个dummy,然后dummy之后的list就是最后要返回的list了.

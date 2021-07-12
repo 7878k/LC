@@ -1,4 +1,5 @@
-//Time: O(log(X)), Space: O(1)
+// 7. Reverse Integer
+// Time: O(log(X)), Space: O(1)
 class Solution {
     public int reverse(int x) {
         int result = 0;

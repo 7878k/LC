@@ -1,5 +1,6 @@
+// 83. Remove Duplicates from Sorted List
 // Because the input list is sorted, 
-//we can determine if a node is a duplicate by
+// we can determine if a node is a duplicate by
 // comparing its value to the node after it in the list.
 // Time O(n), space O(1)
 

@@ -1,3 +1,4 @@
+// 234. Palindrome Linked List
 // FIND MID AND REVERSE MID.NEXT
 // COMPARE FROM HEAD(P1) AND MID.NEXT(P2), IF P2 IS NULL MEANS TRUE, OTHERHISE FALSE
 
@@ -42,16 +43,7 @@ class Solution {
 }
 
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+
 class Solution2 {
     public boolean isPalindrome(ListNode head) {
         if (head == null)
