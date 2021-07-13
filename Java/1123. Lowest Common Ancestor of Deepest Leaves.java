@@ -1,5 +1,6 @@
 // 1123. Lowest Common Ancestor of Deepest Leaves
-// Time: O(N^2), Space:O(N)
+// Time: O(N^2), Space:O(N) 
+// 空间开销与递归深度成正比，最坏情况下，树是一条链，递归深度也就为 n。
 class Solution {
     // 首先要找到最深的节点在哪边
     public TreeNode lcaDeepestLeaves(TreeNode root) {
