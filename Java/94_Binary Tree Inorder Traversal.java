@@ -25,3 +25,19 @@ class Solution {
         return ret;
     }
 }
+
+// recursion
+class Solution2 {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        traverse(root, ret);
+        return ret;
+    }
+    
+    private void traverse(TreeNode root, List<Integer> ret) {
+        if (root == null) return;
+        traverse(root.left, ret);
+        ret.add(root.val);
+        traverse(root.right, ret);
+    }
+}
