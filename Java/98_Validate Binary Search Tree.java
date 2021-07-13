@@ -5,10 +5,10 @@ class Solution {
     private long prev = Long.MIN_VALUE; // 首先定义prev 无限的小
     
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true;  // 如果root是null肯定是bst
+        if (root == null) return true;            // 二叉搜索树也可以为空！
         if (!isValidBST(root.left)) return false; // check 左子树是不是bst，如果不是就false
         if (root.val <= prev) return false;		  // 如果左子树是bst，check当前root值和prev的比较，prev是上一个节点值
-        prev = root.val;						  // 因为prev是全局变量，所以在测root.left之后，prev的值就变成root.left了，也就是root的上个值
+        prev = root.val;						  // 因为prev是全局变量，所以在测isValidBST(root.left))之后，prev的值就变成root.left了，也就是root的上个值
         return isValidBST(root.right);            // check 右子树是不是bst
     }
 }
