@@ -1,5 +1,5 @@
 // 46. Permutations
-// Time & Space: O(N * N!)
+// Time O(N * N!), Space: O(N)
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
@@ -15,7 +15,7 @@ class Solution {
     
     // 用visit记录当前index访问过没有
     private void dfs(int[] nums, boolean[] visited, 
-                    List<Integer> path, List<List<Integer>> ret) {
+                    List<Integer> path, List<List<Integer>> ret) { // argument没记录start，所以要查重
         if (nums.length == path.size()) {   // base case 当前path已经走完了
             ret.add(new ArrayList<>(path));
             return;
