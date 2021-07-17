@@ -12,7 +12,7 @@ class Solution {
         
         while (!queue.isEmpty()) {
 			// 用level记录当前层的所有节点
-            ArrayList<Integer> level = new ArrayList<>();
+            ArrayList<Integer> level = new ArrayList<>();  
             int size = queue.size();
             for (int i = 0; i < size; i++) { //一个loop代表一层，然后当前level存当前层所有node
                 TreeNode head = queue.poll(); // 当前层的所有节点再上一个循环就放进来了

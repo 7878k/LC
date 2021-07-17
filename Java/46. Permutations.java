@@ -22,7 +22,7 @@ class Solution {
         }
         
         for (int i = 0; i < nums.length; i++) {
-            if (!visited[i]) {      // 如果没有访问过，就加入当前path
+            if (!visited[i]) {      // 如果没有访问过，就加入当前path * 记得要检查 忘记好多次了
                 path.add(nums[i]);  // choose
                 visited[i] = true;
                 

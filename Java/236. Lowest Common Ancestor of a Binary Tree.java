@@ -14,7 +14,7 @@ class Solution {
             return root;
         if (left == null) // 如果是null，答案肯定在right
             return right;
-        if (right == null) // vive versa
+        if (right == null) // vise versa
             return left;
         return null; // 如果都没有就没有lca
     }
