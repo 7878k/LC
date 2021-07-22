@@ -1,15 +1,5 @@
 // 19. Remove Nth Node From End of List
-// Time: O(L), Space: O(1)
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+// Time: O(n), Space: O(1)
 // 双指针fast先走n，然后当fast和slow开始同步走，
 // 当fast走完的时候，slow就在倒数第n的前节点，因为slow的起点是dummy，所以少走一步
 // 最后返回dummy.next

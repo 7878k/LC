@@ -28,10 +28,11 @@ class Solution {
         // 更新路径上当前节点前缀和的个数
         int left = dfs(root.left, curSum);
         int right = dfs(root.right, curSum);
+        // 一个节点必须是另一个节点的祖先节点
         // 在回溯结束，回到本层时去除，保证其不影响其他分支的结果 
         // 如果左子树有个6， 右子树也有6，左子树的不能算进去要删掉
         prefixMap.put(curSum, prefixMap.get(curSum) - 1);
-        
-        return result + left + right;
+        // 结果是当前节点前缀树的个数加上左边满足的个数加右边满足的个数
+        return result + left + right; 
     }
 }
