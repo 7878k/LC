@@ -1,5 +1,6 @@
 // 143. Reorder List
 // Time: O(N), Space:O(1)
+// 1, find mid; 2, reverse mid.next; 3, merge head/mid.next
 class Solution {
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) {
