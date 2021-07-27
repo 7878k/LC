@@ -14,7 +14,7 @@ class Solution {
             carry = sum / 10;
             result = sum % 10;
             head.next = new ListNode(result);
-            head = head.next;
+            head = head.next; // 记得head要往后移一个
             // 如果不是null，就move to next node
             l1 = (l1 == null) ? null : l1.next;
             l2 = (l2 == null) ? null : l2.next;

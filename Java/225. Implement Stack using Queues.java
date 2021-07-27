@@ -1,6 +1,7 @@
 // 225. Implement Stack using Queues
 // Time: push O(n),  pop O(1)
-// 把push之前的元素移到queue后面 一个queue搞定
+// 把push之前的元素移到queue后面 
+// 然后再把它之后的元素重新拿出来再放进去，这样最先push的永远在在前面
 class MyStack {
     Queue<Integer> queue;
     /** Initialize your data structure here. */
