@@ -1,8 +1,8 @@
 // 283. Move Zeroes
 // time: O(n), space: O(1)
-// 两个挡板， left左边是未处理的，不包括left， right右边都是需要处理的，包括right
+// 两个挡板， left左边是已处理的，不包括left， right右边都是需要处理的，包括right
 // right如果不为0，就和left换位置，然后left++，
-// 每一轮right++，right位置就是需要判断0的时候
+// 每一轮right++，因为right需要遍历整个nums，移动了就判断当前数是不是0
 class Solution {
     public void moveZeroes(int[] nums) {
         int length = nums.length -1;
