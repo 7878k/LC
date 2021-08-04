@@ -24,16 +24,19 @@ class Solution {
             put('}', '{');
         }};
         
-        // 把左括号放到stack里，如果map里没有这个，就放进stack
+        // 把左括号放到stack里，
+		// 然后check map有没有当前的括号，没有就放进stack
         Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             char ch = s.charAt(i);
             // 如果map里有这个，看stack有没有对应的，或者stack是不是空的（只有其中一个括号）
             if (pairs.containsKey(ch)) {
+				// stack存的都是左括号
                 if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
                     return false;
                 }
                 // 如果map有右括号，stack有对应左括号，将这个左括号pop
+				// 这是因为stack是LIFO，右括号先检测找对应的左括号
                 stack.pop();
             } else {    // 没有就放一个左括号进stack
                 stack.push(ch);
