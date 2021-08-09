@@ -31,7 +31,7 @@ class Solution2 {
         
         while (left < right) {
             if (numbers[left] + numbers[right] == target) {
-                return new int[] {left + 1, right + 1};
+                return new int[] {left + 1, right + 1}; // 注意坐标+1
             } else if (numbers[left] + numbers[right] < target) {
                 left++;
             } else {

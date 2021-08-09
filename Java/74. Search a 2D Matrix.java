@@ -5,20 +5,19 @@
 
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
         int left = 0;
-        int right = matrix.length * matrix[0].length;
+        int right = m * n - 1;
         
         while (left < right) {
             int mid = left + (right - left) / 2;
-            int num = matrix[mid / matrix[0].length][mid % matrix[0].length];
-            if (num == target) {
-                return true;
-            } else if (num < target) {
+            if (matrix[mid / n][mid % n] < target) {
                 left = mid + 1;
             } else {
                 right = mid;
-            }
+            } 
         }
-        return false;
+        return matrix[left / n][right % n] == target;
     }
 }

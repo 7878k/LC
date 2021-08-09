@@ -20,6 +20,7 @@ class Solution {
                 }
             } else if (nums[mid] > nums[right]) {
 				// 具体例子：[4, 5, 9, 2]，mid 左边是一定是顺序数组，包括 nums[mid]
+				// 切记这里要改成 mid - 1，和上一个if对应！
                 if (nums[left] <= target && target <= nums[mid - 1]) {
                     right = mid - 1;
                 } else {
@@ -33,6 +34,6 @@ class Solution {
                 right--;
             }
         }
-        return nums[left] == target;
+        return nums[left] == target; // 最后还有一个数，记得比较下~
     }
 }
