@@ -1,14 +1,11 @@
 // 125. Valid Palindrome
-// Given a string s, determine if it is a palindrome, 
-// 	considering only alphanumeric characters and ignoring cases.
-// Time: O(N)	
-// Space: O(1)
+// Time: O(N); Space: O(1)
 
 class Solution {
     public boolean isPalindrome(String s) {
         int left = 0;
         int right = s.length() - 1;
-        s=s.toLowerCase();        
+        s = s.toLowerCase();        
         // 双指针首尾一起移动，跳过空格
         while (left < right) {
             while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {

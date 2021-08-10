@@ -10,8 +10,10 @@ class Solution {
         int right = 0;
         
         while (right <= length) {
+			// 找到了一个非0数，然后把它移动到0的位置
             if (nums[right] != 0) {
                 int temp = nums[left];
+				// left左边都是非0的，所以找到了非0要往后移动1次
                 nums[left++] = nums[right];
                 nums[right] = temp;
             }
