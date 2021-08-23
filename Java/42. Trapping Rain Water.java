@@ -3,6 +3,7 @@
 // tip: 当前积水量，只跟较小的一边有关
 // 比较left right的值，哪边小就用哪边的max - height[cur]
 // 然后移动对应指针
+
 class Solution {
     public int trap(int[] height) {
         int left = 0;
