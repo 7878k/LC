@@ -12,6 +12,7 @@ class Solution {
         int rightMax = 0;
         int ans = 0;
         
+		// 当left == right的时候，是接不到雨水的
         while (left < right) {
             leftMax = Math.max(leftMax, height[left]);
             rightMax = Math.max(rightMax, height[right]);

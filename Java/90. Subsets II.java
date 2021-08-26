@@ -11,7 +11,7 @@ class Solution {
     private void dfs(List<List<Integer>> ret, List<Integer> path, int[] nums, int start) {
         ret.add(new ArrayList<>(path));
         for (int i = start; i < nums.length; i++) {
-            if ( i != start && nums[i] == nums[i - 1]) { // 判断这个数是不是第一次出现，并且不和前面的数相同
+            if ( i > start && nums[i] == nums[i - 1]) { // 判断这个数是不是第一次出现，并且不和前面的数相同
                 continue;
             }
             path.add(nums[i]);
