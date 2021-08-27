@@ -2,7 +2,7 @@
 // Time: O(2^n * n); Space: O(2^n * n)
 // 如果下一个字符是字母，就遍历字符串，然后复制2份：大小写
 // 如果是数字，就直接加在后面
-
+ 
 class Solution {
     public List<String> letterCasePermutation(String s) {
         List<String> ans = new ArrayList<>();
