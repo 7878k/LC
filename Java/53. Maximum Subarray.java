@@ -17,3 +17,22 @@ class Solution {
         return result;
     }
 }
+
+// 子问题 dp[i]: 表示以 nums[i] 结尾 的 连续 子数组的最大和。
+// 状态转移方程： 如果dp[i - 1] < 0 那么dp[i] = nums[i];
+// otherwise: dp[i] = nums[i] + dp[i - 1]
+// 反正都和nums[i]有关 dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int pre = 0;
+        int ans = nums[0];
+        
+        for (int num : nums) {
+            pre = Math.max(num, pre + num);
+            ans = Math.max(pre, ans);
+        }
+        
+        return ans;
+    }
+}
