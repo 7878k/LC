@@ -23,6 +23,7 @@ class Solution {
 // otherwise: dp[i] = nums[i] + dp[i - 1]
 // 反正都和nums[i]有关 dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
 
+// Space optimize  
 class Solution {
     public int maxSubArray(int[] nums) {
         int pre = 0;
@@ -33,6 +34,27 @@ class Solution {
             ans = Math.max(pre, ans);
         }
         
+        return ans;
+    }
+}
+
+
+// naive solution 
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        int ans = nums[0];
+        
+        for (int i = 1; i < len; i++) {
+            if (dp[i - 1] > 0) {
+                dp[i] = dp[i - 1] + nums[i];
+            } else {
+                dp[i] = nums[i];
+            }
+            ans = Math.max(ans, dp[i]);
+        }
         return ans;
     }
 }

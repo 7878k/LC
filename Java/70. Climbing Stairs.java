@@ -3,9 +3,10 @@
 // 状态转移方程 f(n) = f(n - 1) + f(n - 2)
 // 边界 f(1)= 1, f(2) = 2
 
+// space optimize 
 class Solution {
     public int climbStairs(int n) {
-        if (n < 2) {
+        if (n <= 2) {
             return n;
         }
         // 走到第一个台阶有一种方法：走一步
@@ -59,3 +60,4 @@ class Solution {
     }
         
 }
+
