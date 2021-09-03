@@ -17,9 +17,12 @@ class Solution {
             leftMax = Math.max(leftMax, height[left]);
             rightMax = Math.max(rightMax, height[right]);
             
+			// 如果左高度<右高度，那么左max<右max
+			// 高度是由最小值决定的，所以用左边算高度
             if (height[left] < height[right]) {
                 ans += leftMax - height[left];
                 left++;
+			// 同理
             } else {
                 ans += rightMax - height[right];
                 right--;
