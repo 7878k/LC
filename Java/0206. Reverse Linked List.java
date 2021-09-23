@@ -24,7 +24,7 @@ class Solution2 {
             ListNode next = head.next;  // store next node
             head.next = prev;           // reverse first node
             prev = head;                // move prev to current head
-            head = next;           // head move to next node to reverse
+            head = next;           		// head move to next node to reverse
         }
         return prev;                    // now head is null, so return prev
     }
