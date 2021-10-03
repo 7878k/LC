@@ -14,7 +14,7 @@ class Solution {
                 ans++;
             }
             if ((long)i * i < n) {
-				// 从 i * i开始标记，剔除重复计算
+				// 因为从2到i - 1的倍数已经算了，这里直接从i开始
                 for (int j = i * i; j < n; j += i) {
                     isPrime[j] = 0;
                 }
