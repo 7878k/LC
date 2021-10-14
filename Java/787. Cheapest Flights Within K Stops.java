@@ -16,6 +16,7 @@ class Solution {
             Arrays.fill(f[i], INF);
         }
         f[0][src] = 0;
+		// 最多k+1次航班，所以<= k+1
         for (int t = 1; t <= k + 1; ++t) {
             for (int[] flight : flights) {
                 // j是最后一个起点，所以是i之前的src，i就是dst
