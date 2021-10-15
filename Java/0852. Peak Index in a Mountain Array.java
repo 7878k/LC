@@ -3,7 +3,7 @@
 
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
-        int left = 1;
+        int left = 0;
         int right = arr.length - 1;
         
         while (left < right) {
