@@ -29,7 +29,7 @@ class Solution {
                     return step + 1;
                 }
             }
-            step++;
+            step++;	// 当前queue遍历完了，说明当前word的所有下一个路线遍历完了，step + 1
         }
         return 0;
     }

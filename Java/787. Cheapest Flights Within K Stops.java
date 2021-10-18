@@ -54,7 +54,7 @@ class Solution {
             srcInfo[flight[0]].add(new int[] {flight[1], flight[2]});
         }
         
-        // ans储存从起点到某个点的花费
+        // ans储存从起点到某个点的花费, 一共有n个城市
         int[] ans = new int[n];
         Arrays.fill(ans, INF);
         // queue储存src到某个点需要的花费

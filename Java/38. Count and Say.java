@@ -19,7 +19,7 @@ class Solution {
                     curr++;
                 }
                 sb.append(Integer.toString(curr - start)).append(res.charAt(start));
-                start = curr;
+                start = curr; // start位置每一轮要更新
             }
             res = sb.toString(); 	// res每次循环要更新
         }
