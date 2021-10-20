@@ -29,7 +29,7 @@ class Solution {
                     return step + 1;
                 }
             }
-            step++;	// 当前queue遍历完了，说明当前word的所有下一个路线遍历完了，step + 1
+            step++;	// 当前queue遍历完了，说明当前word的所有下一个路线遍历完了，step + 1	
         }
         return 0;
     }
@@ -43,6 +43,7 @@ class Solution {
         for (int i = 0; i < length; i++) {
 			// 保存当前的char，替换下一个char之前要换回来
             char originChar = charArray[i];
+			// 开始替换，从'a'换到'z' 每个字母都换
             for (char ch = 'a'; ch <= 'z'; ch++) {
                 if (ch == originChar) { // 如果是当前char 不用替换
                     continue;
@@ -58,7 +59,7 @@ class Solution {
 					// 最后要把把当前词加入visited
                     if (!visited.contains(nextWord)) {
                         queue.offer(nextWord);
-                        visited.add(nextWord);
+                        visited.add(nextWord); // 切记要添加进visited，不然tle
                     }
                 } 
             }
