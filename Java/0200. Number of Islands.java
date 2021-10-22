@@ -22,7 +22,7 @@ class Solution {
                         parent[i * n + j] = i * n + j;
                         count++;
                     }
-                    rank[i * n + j] = i * n + j;
+                    rank[i * n + j] = 1;
                 }
             }
         }
@@ -41,13 +41,16 @@ class Solution {
             int rootY = find(y);
             
             if (rootX != rootY) {
-                if (rank[rootY] > rank[rootX]) {
-                    parent[rootX] = rootY;
-                } else {
-                    parent[rootY] = rootX;
-                }
+				if (rank[rootX] > rank[rootY]) {
+					parent[rootY] = rootX;
+				} else if (rank[rootX] < rank[rootY]) {
+					parent[rootX] = rootY;
+				} else {
+					parent[rootY] = rootX;
+					rank[rootX] += 1;
+				}
                 count--;
-            }
+			}	
         }
         
         public int getCount() {
