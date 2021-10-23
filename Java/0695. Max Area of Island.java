@@ -68,7 +68,7 @@ class Solution {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
-					// spcial case: when only one island exists 
+					// special case: when only one island exists 
                     uf.max = Math.max(1, uf.max);
                     if (i - 1 >= 0 && grid[i - 1][j] == 1) {
                         uf.union(i * n + j, (i - 1) * n + j);
