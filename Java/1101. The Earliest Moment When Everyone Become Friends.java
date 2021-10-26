@@ -3,12 +3,10 @@
 
 class Solution {
     class UnionFind {
-        int count;
         int[] rank;
         int[] parent;
         
         public UnionFind(int size) {
-            count = size;
             rank = new int[size];
             parent = new int[size];
             for (int i = 0; i < size; i++) {
@@ -36,7 +34,6 @@ class Solution {
                     parent[rootY] = rootX;
                     rank[rootX]++;
                 }
-                count--;
             }
         }
     }

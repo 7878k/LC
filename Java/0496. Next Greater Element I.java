@@ -14,6 +14,7 @@ class Solution {
         // 然后把栈顶弹出放到map，value就是比它大的下1个值
         for (int i = 0; i < length2; i++) {
             while (!stack.isEmpty() && stack.peek() < nums2[i]) {
+				// stack里存的是比当前值小的第一个数
                 nextGreaterMap.put(stack.pop(), nums2[i]);
             }
             stack.push(nums2[i]);

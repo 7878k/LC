@@ -21,7 +21,7 @@ class Solution {
                     if (grid[i][j] == 1) { // 只标记岛屿，所以当==1时候才标记
                         parent[i * n + j] = i * n + j;
                     }
-                    rank[i * n + j] = 1;
+                    rank[i * n + j] = 1; // 这里必须写rank，因为是算面积
                 }
             }
         }

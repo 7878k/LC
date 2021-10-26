@@ -47,6 +47,7 @@ class Solution {
         }
     }
     
+	// isConnected的每个row是每个点，col是这个点跟周边点是不是连在一起的
     public int findCircleNum(int[][] isConnected) {
         if (isConnected == null || isConnected.length == 0) {
             return 0;
@@ -57,6 +58,7 @@ class Solution {
         
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
+				// 当两个点相连的时候，并且不是同一个点，就union
                 if (isConnected[i][j] == 1 && i != j)
                     uf.union(i, j);
             }
