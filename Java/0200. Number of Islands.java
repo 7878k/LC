@@ -70,6 +70,7 @@ class Solution {
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+				// 还要检测当前是否为1，不然可能出现一个是1，另一个不是1
                 if (grid[i][j] == '1') {
 					// 只需要检测左和上，因为右边能连通，左边也能，上下也一样
                     if (i - 1 >= 0 && grid[i - 1][j] == '1') {
