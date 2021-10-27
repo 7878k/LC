@@ -7,7 +7,7 @@ class Solution {
         int index = 0;
         
         for (int num : pushed) {
-            stack.push(num);
+            stack.push(num); // 先做push操作
             while (!stack.isEmpty() && index < pushed.length && stack.peek() == popped[index]) {
                 stack.pop();
                 index++;

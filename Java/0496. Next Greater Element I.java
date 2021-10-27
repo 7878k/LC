@@ -1,5 +1,6 @@
 // 496. Next Greater Element I
 // Time:O(N + M); Space: O(N)
+// spent: 20min
 
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
@@ -17,15 +18,14 @@ class Solution {
 				// stack里存的是比当前值小的第一个数
                 nextGreaterMap.put(stack.pop(), nums2[i]);
             }
-            stack.push(nums2[i]);
-                   
+            stack.push(nums2[i]);        
         }
         
         int ret[] = new int[length1];
         for (int i = 0; i < length1; i++) {
             ret[i] = nextGreaterMap.getOrDefault(nums1[i], -1);
         }
-        
+   
         return ret;
     }
 }

@@ -1,8 +1,7 @@
 // 116. Populating Next Right Pointers in Each Node
 //  递归先连 左右，然后连上中间的。
-
-
 // Time: O(N), Space: O(1)
+
 class Solution {
     public Node connect(Node root) {
         if (root == null) {
@@ -47,5 +46,36 @@ class Solution2 {
         helper(root1.left, root1.right);
         helper(root2.left, root2.right);
         helper(root1.right, root2.left);
+    }
+}
+
+// BFS
+// TIME & SPACE: O(N)
+class Solution {
+    public Node connect(Node root) {
+        if (root == null) {
+            return root;
+        }
+        
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node node = queue.poll();
+                if (i != size - 1) {
+                    node.next = queue.peek();
+                }
+                
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+        }
+        return root;
     }
 }
