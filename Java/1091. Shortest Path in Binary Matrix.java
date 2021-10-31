@@ -1,5 +1,5 @@
 // 1091. Shortest Path in Binary Matrix
-// Time & Space: O(N)
+// Time & Space: O(N), N is the number of cells
 
 class Solution {
     public int shortestPathBinaryMatrix(int[][] grid) {
@@ -32,6 +32,7 @@ class Solution {
                 for (int[] dir : dirs) {
                     int x = dir[0] + curr[0];
                     int y = dir[1] + curr[1];
+					// 判断边界条件，visited数组，和当前位置能否走(是否为0)
                     if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 && !visited[x][y]) {
                         queue.offer(new int[] {x, y});
                         visited[x][y] = true;

@@ -1,5 +1,5 @@
 // 40. Combination Sum II
-// Time: O(N * 2^N); Space: O(N)
+// Time: O(N * 2^N); Space: O(N) N是candidates长度
 // 同39
 
 class Solution {

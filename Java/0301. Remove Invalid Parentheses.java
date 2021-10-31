@@ -22,11 +22,12 @@ class Solution {
             Set<String> nextSet = new HashSet<>();
             for (String str : currSet) {
                 for (int i = 0; i < str.length(); i++) {
-					// 剪枝
+					// 剪枝 处理(((()) 这种情况
                     if (i > 0 && str.charAt(i) == str.charAt(i - 1)) {
                         continue;
                     }
                     if (str.charAt(i) == '(' || str.charAt(i) == ')') {
+						// 把当前已经删了括号的string带到下一层
                         nextSet.add(str.substring(0, i) + str.substring(i + 1));
                     }
                 }

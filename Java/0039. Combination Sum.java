@@ -1,5 +1,5 @@
 // 39. Combination Sum
-// Time: O(S), S为所有可行解的长度之和; Space: O(target)
+// Time: O(N * 2^N); Space: O(N), N是candidates长度
 // 排列问题，如果答案讲究顺序，就用visited数组 [2,2,3]和[2,3,2]不同
 // 如果不讲究顺序，用begin变量，[2,2,3]和[2,3,2]相同
 

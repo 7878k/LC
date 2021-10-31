@@ -58,12 +58,14 @@ class Solution {
         for (int i = 0; i < n; i++) {
             vertices.add(new ArrayList<>());
         }
+		// 把点双向连接起来
         for (int i = 0; i < edges.length; i++) {
             vertices.get(edges[i][0]).add(edges[i][1]);
             vertices.get(edges[i][1]).add(edges[i][0]);
         }
         
 		// O(V) sapce
+		// queue中存放还未遍历的
         Queue<Integer> queue = new LinkedList<>();
 		// O(V) space
         HashSet<Integer> visited = new HashSet<>();
@@ -74,6 +76,7 @@ class Solution {
             if (currVertex == end) {
                 return true;
             }
+			// 每进一次queue就是访问一次
             visited.add(currVertex);
             
             for (int vertex : vertices.get(currVertex)) {
