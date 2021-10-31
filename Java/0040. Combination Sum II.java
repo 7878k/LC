@@ -26,7 +26,8 @@ class Solution {
             }
             // 小剪枝
 			// i > begin i目前不是begin，现在是同层，不能出现相同元素，就不能选
-			// 同一层相同数值的结点，从第 2 个开始，候选数更少，结果一定发生重复，因此跳过，用 continue
+			// 让同一层不能出现相同的数，不然会出现重复答案
+			// 下一层可以重复，i > begin说明第一个数要，第二个数不要
             if (i > begin && candidates[i] == candidates[i - 1]) {
                 continue;
             }

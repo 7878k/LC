@@ -9,6 +9,10 @@ An input string is valid if:
 1.Open brackets must be closed by the same type of brackets.
 2.Open brackets must be closed in the correct order.
 */
+// 判断括号的有效性可以有stack来解决
+// 遍历string，碰到左括号就要期待后面有右括号
+// 越是后遇到的左括号，越早有右括号闭合，
+// 所以将这个后碰到的左括号放入stack中，期待后面有右括号闭合
 class Solution {
     public boolean isValid(String s) {
         // 如果长度不是偶数，肯定不符合。
@@ -29,9 +33,12 @@ class Solution {
         Deque<Character> stack = new LinkedList<>();
         for (int i = 0; i < n; i++) {
             char ch = s.charAt(i);
+			// 先判断当前字符是左括号还是右括号
+			// 如果map里有ch，肯定是右括号，反之左括号
             // 如果map里有这个，看stack有没有对应的，或者stack是不是空的（只有其中一个括号）
             if (pairs.containsKey(ch)) {
 				// stack存的都是左括号
+				// 看当前stack有没有对应的左括号
                 if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
                     return false;
                 }

@@ -1,5 +1,8 @@
 // 79. Word Search
-// Time: (MN*3^L); Space: O(MN)
+// Time: (MN*3^L); Space: O(MN), L是字符串word的长度
+// 除了第一次有四个走法，后面最多只有三个走法，因为不能回退。
+// 检测一个字符是3^L, 要检测MN次
+// spend: 30min 
 
 class Solution {
     int rows, cols;
@@ -25,6 +28,7 @@ class Solution {
         return false;
     }
     
+	// index是当前坐标
     private boolean backtrack(int index, int row, int col) {
 		// visited[row][col] 说明走完了都没有找到
         if (row < 0 || row >= rows || col < 0 || col >= cols || visited[row][col]) {

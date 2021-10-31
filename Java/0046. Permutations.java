@@ -1,5 +1,6 @@
 // 46. Permutations
-// Time O(N * N!), Space: O(N)
+// Time: O(n * n!), 一共n！个结果，每次复制一遍需要O(n)
+// Space: O(n); 递归了n次
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
@@ -31,6 +32,37 @@ class Solution {
                 visited[i] = false;
                 path.remove(path.size() - 1);
             }
+        }
+    }
+}
+
+
+
+// 不用visited数组
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        
+        List<Integer> path = new ArrayList<>();
+        for (int num : nums) {
+            path.add(num);
+        }
+        
+        helper(nums.length, ans, path, 0);
+        return ans;
+    }
+    // index是下一个要填的位置，不是当前位置
+    private void helper(int length, List<List<Integer>> ans, List<Integer> path, int index) {
+        if (index == length) {
+            ans.add(new ArrayList<>(path));
+            return;
+        }
+        
+		// 每个循环i变成当前index
+        for (int i = index; i < length; i++) {
+            Collections.swap(path, index, i);
+            helper(length, ans, path, index + 1);
+            Collections.swap(path, index, i);
         }
     }
 }
