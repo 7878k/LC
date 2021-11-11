@@ -1,9 +1,11 @@
 // 42. Trapping Rain Water
 // Time: O(n); Space: O(1)
 // tip: 当前积水量，只跟较小的一边有关
+// 较小的边决定装了多少水，用指针算当前的最大值max
+// max - height就是当前位置的值
 // 比较left right的值，哪边小就用哪边的max - height[cur]
 // 然后移动对应指针
-
+// spend: 8min
 class Solution {
     public int trap(int[] height) {
         int left = 0;

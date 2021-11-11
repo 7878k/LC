@@ -2,6 +2,9 @@
 // Time: O(amount*n); n = amount.length; Space: O(amount)
 // 设dp[i]为金额为i的时候需要的硬币最小数
 // dp[i] = min F(i - C(j)) + 1, 意思就是算了所有金额到i的最后一步，然后+1
+// C(j)代表第j枚硬币的面值，
+
+// spend: 10min
 
 class Solution {
     public int coinChange(int[] coins, int amount) {
@@ -10,7 +13,7 @@ class Solution {
         int[] dp = new int[amount + 1];
         int len = coins.length;
         Arrays.fill(dp, max);
-        dp[0] = 0; // 0元的时候凑不出答案
+        dp[0] = 0; // 0元的时候凑出答案，为0个
         
         for (int i = 1; i <= amount; i++) {
            for (int j = 0; j < len; j++) {

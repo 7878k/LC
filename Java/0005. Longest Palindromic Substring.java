@@ -48,3 +48,53 @@ class Solution {
         return right - left - 1;
     }
 }
+
+
+
+// Time & Space: O(N^2)
+// Spend: 20min
+// dp[i][j] 表示i - j之间有没有回文
+// dp[i][j] = P(i + 1, j - 1) ^ (Si = Sj)
+class Solution {
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+        
+        int maxLength = 1;
+        int begin = 0;
+        boolean[][] dp = new boolean[len][len];
+        char[] charArray = s.toCharArray();
+        // 单字的都是回文
+        for (int i = 0; i < len; i++) {
+            dp[i][i] =true;
+        }
+        
+        for (int currLength = 2; currLength <= len; currLength++) {
+            for (int i = 0; i < len; i++) {
+                int j = currLength + i - 1;
+                // 越界
+                if (j >= len) {
+                    break;
+                }
+                if (charArray[i] != charArray[j]) {
+                    dp[i][j] = false;
+                } else {
+                    // 如果只有2个或1个，肯定是true
+                    if (j - i + 1 <= 2) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+                if (dp[i][j] && j - i + 1 > maxLength) {
+                    maxLength = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+        
+        return s.substring(begin, begin + maxLength);
+    }
+}

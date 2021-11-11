@@ -24,6 +24,7 @@ class Solution {
 // 反正都和nums[i]有关 dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
 
 // Space optimize  
+// SPEND: 5MIN
 class Solution {
     public int maxSubArray(int[] nums) {
         int pre = 0;

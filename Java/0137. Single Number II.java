@@ -3,6 +3,10 @@
 class Solution {
     public int singleNumber(int[] nums) {
         int ans = 0;
+		// 32 int range
+		// 答案的第i个bit可能是0/1
+		// 算出每一位
+		// 答案的第i个bit就是所有元素第i个bit之和除以3的余数
         for (int i = 0; i < 32; i++) {
             int total = 0;
 			// 重复的数的第i位肯定是3的倍数，要么0，要么3
@@ -11,8 +15,9 @@ class Solution {
                 total += ((num >> i) & 1);
             }
 			// 把第i位放到对应的位置
+			// it sets the i'th bit of ans to 1
             if (total % 3 != 0) {
-                ans |= (1 << i);
+                ans |= (1 << i); // 1<<i i left-shifted by i
             }
         }
         return ans;
@@ -24,14 +29,11 @@ class Solution {
 class Solution {
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        for (int x : nums) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                return entry.getKey();
-            }
+        for (int x : map.keySet()) {
+            if (map.get(x) == 1) return x;
         }
         return -1;
     }

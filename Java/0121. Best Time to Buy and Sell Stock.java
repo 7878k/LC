@@ -1,5 +1,6 @@
 // 121. Best Time to Buy and Sell Stock
 // Time: O(n), Space: O(1)
+// SPEND: 10min
 
 class Solution {
     public int maxProfit(int[] prices) {
@@ -16,7 +17,7 @@ class Solution {
         dp[1] = -prices[0];
         
         for (int i = 1; i < len; i++) {
-			// 如果没股票，那么前一天和今天都没买，或者昨天买了今天卖了
+			// 如果没股票，那么前一天和今天都没买；如果昨天买了股票，今天就卖了
             dp[0] = Math.max(dp[0], dp[1] + prices[i]);
 			// 如果有股票，昨天也有，那就是昨天的钱；如果昨天没有今天有，那么手里的钱是负数
             dp[1] = Math.max(dp[1], -prices[i]);

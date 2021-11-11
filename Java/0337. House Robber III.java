@@ -6,6 +6,8 @@
 // 如果不选，那么最大值就是g(node) = Math.max(f(left), g(left)) + Math.max(f(right), g(right))
 // 当前值不选的话，左右子树可选可不选
 
+// spend: 15min
+
 class Solution {
     public int rob(TreeNode root) {
         int[] rootStatus = dfs(root); 

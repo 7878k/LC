@@ -4,26 +4,24 @@
 
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        int length = nums.length;
-        if (length == 0) {
-            return 0;
-        }
+        int len = nums.length;
+        // 定义dp[i]是前i个数中，以第i个数字结尾的最长上升子序列的长度
+        int[] dp = new int[len];
+        dp[0] = 1;  // 默认都为1，就是它本身
+        int ans = 1;
         
-        int[] dp = new int[length];
-		// 第一个数只有一个答案，就是它自己
-        dp[0] = 1;
-        int max = 1;
-        
-        for (int i = 1; i < length; i++) {
-            dp[i] = 1;
-            for (int j = 0; j < i; j++) {
-				// 如果当前值比nums[i]小，就可以放在后面
+        for (int i = 1; i < len; i++) {
+            dp[i] = 1;  // 每一轮都最开始都为1
+            for (int j = 0; j < i; j++) {  
+                // 看i前面的数能否放在i的前面
                 if (nums[i] > nums[j]) {
+                    // 能的话就取前面的数结尾的最大值 + 1，和当前dp[i]比较
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            max = Math.max(max, dp[i]);
+            ans = Math.max(ans, dp[i]); // 答案是总的最大值
         }
-        return max;
+        
+        return ans;
     }
 }
