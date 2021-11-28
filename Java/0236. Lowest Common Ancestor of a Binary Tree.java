@@ -1,5 +1,6 @@
 // 236. Lowest Common Ancestor of a Binary Tree
 // TIME & SPACE: O(N)
+// SPEND: 5min
 class Solution {
 	// 二叉树的最近公共祖先，如果其中一个node是root，那么它就是答案
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

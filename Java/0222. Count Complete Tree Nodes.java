@@ -2,6 +2,7 @@
 // Time: O(log(n) * log(n))  getDepth = O(h), findNodes = O(h)
 // Space: O(log(N))
 // complete binary tree nodes: (2^h) - 1
+// SPEND: 5min
 class Solution {
     public int countNodes(TreeNode root) {
         // base case

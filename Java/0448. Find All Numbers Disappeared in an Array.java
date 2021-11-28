@@ -2,17 +2,22 @@
 // Time： O(n), Space: O(1)
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        int n = nums.length;
-        for (int num : nums) {
-            int x = (num - 1) % n; // 还原x， 因为array是从1开始，所以-1
-            nums[x] += n;          // 每个位置都+n， 如果最后<=n, 说明这个数原来不存在
-        }
-        List<Integer> ret = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            if (nums[i] <= n) {  // i是index，最后的结果要+1
-                ret.add(i + 1);  // i位置上的值是i+1
+        int len = nums.length;
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 0; i < len; i++) {
+			// 获取每个num代表的位置，如果大于0，就把那个位置的数取反
+            if (nums[Math.abs(nums[i]) - 1] > 0) {
+                nums[Math.abs(nums[i]) - 1] *= -1;
             }
         }
-        return ret;
+        for (int i = 0; i < len; i++) {
+			// 最后如果有正数，那肯定这个数不是应有的number
+            if (nums[i] > 0) {
+                ans.add(i + 1);
+            }
+        }
+        return ans;
     }
+    
 }

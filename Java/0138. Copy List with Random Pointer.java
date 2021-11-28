@@ -1,5 +1,6 @@
 // 138. Copy List with Random Pointer
 // Time: O(n), Space: O(1)
+// SPEND: 20min
 class Solution {
     public Node copyRandomList(Node head) {
         if (head == null) {

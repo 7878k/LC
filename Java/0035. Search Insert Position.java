@@ -39,3 +39,21 @@ class Solution {
         return left;
     }
 }
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int len = nums.length;
+        int left = 0;
+        int right = len;
+        while (left < right) {
+            int mid = left + right >> 1;
+			// 去target的值，或者第一个比它大的
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}

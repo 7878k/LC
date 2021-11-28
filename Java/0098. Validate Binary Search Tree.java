@@ -1,7 +1,7 @@
 // 98. Validate Binary Search Tree
 // Time & Space: O(n)
 class Solution {
-	// inorder recursion
+	// inorder recursion 中序遍历
     private long prev = Long.MIN_VALUE; // 首先定义prev 无限的小
     
     public boolean isValidBST(TreeNode root) {

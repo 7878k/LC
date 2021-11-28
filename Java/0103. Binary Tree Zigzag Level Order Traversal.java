@@ -2,6 +2,40 @@
 // 和LC102一样，只不过变成偶数行从左到右遍历，奇数行从右往左遍历
 // 第一行是0
 // TIME: O(N); SPACE: O(N)
+
+// new 
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root != null) {
+            Deque<TreeNode> queue = new ArrayDeque<>();
+            queue.offer(root);
+            
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+                Deque<Integer> level = new ArrayDeque<>();
+                for (int i = 0; i < size; i++) {
+                    TreeNode head = queue.poll();
+                    if ((ans.size() & 1) == 0) {
+                        level.offerLast(head.val);
+                    } else {
+                        level.offerFirst(head.val);
+                    }
+                    if (head.left != null) {
+                        queue.offer(head.left);
+                    } 
+                    if (head.right != null) {
+                        queue.offer(head.right);
+                    }
+                }
+                ans.add(new ArrayList<>(level));
+            }
+        }
+        return ans;
+    }
+}
+
+
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<>();

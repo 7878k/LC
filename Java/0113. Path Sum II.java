@@ -1,6 +1,7 @@
 // 113. Path Sum II
 // Time: O(N^2), copy: O(N), traverse:O(N)
 // Space: O(N)
+// SPEND: 10min
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> ret = new ArrayList<>();
